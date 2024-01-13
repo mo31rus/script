@@ -15,6 +15,7 @@ PROXYOPTS=none
 APKREPOSOPTS="-c -1"
 SSHDOPTS=openssh
 ROOTSSHKEY="https://github.com/mir-okon.keys"
+USEROPTS=none
 NTPOPTS="chrony"
 DISKOPTS="-m sys /dev/sda"
 LBUOPTS="LABEL=APKOVL"
