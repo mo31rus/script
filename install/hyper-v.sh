@@ -21,11 +21,11 @@ WHITE='\033[1;37m'
 RESET='\033[0m'
 
 
-echo -e "${BRIGHTYELLOW}┌────────────────────────────┐${RESET}"
-echo -e "${BRIGHTYELLOW}│ ${BRIGHTCYAN}Alpine Linux Config Script │${RESET}"
-echo -e "${BRIGHTYELLOW}└────────────────────────────┘${RESET}"
-echo -e "${BRIGHTYELLOW}│${BRIGHTGREEN} Installing Hyper-V modules...${RESET}"
-echo -e "${BRIGHTYELLOW}──────────────────────────────${RESET}"
+echo -e "${BRIGHTCYAN}┌────────────────────────────┐${RESET}"
+echo -e "${BRIGHTCYAN}│ Alpine Linux Config Script │${RESET}"
+echo -e "${BRIGHTCYAN}└────────────────────────────┘${RESET}"
+echo -e "${BRIGHTCYAN}│${RESET} ${BRIGHTGREEN}Installing Hyper-V modules...${RESET}"
+echo -e "${BRIGHTCYAN}──────────────────────────────${RESET}"
 
 apk add hvtools
 
