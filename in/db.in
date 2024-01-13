@@ -1,0 +1,21 @@
+KEYMAPOPTS="us us"
+HOSTNAMEOPTS=db
+DEVDOPTS=mdev
+# Contents of /etc/network/interfaces
+INTERFACESOPTS="auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+hostname db
+"
+DNSOPTS="-d mir.okon 10.100.10.240"
+TIMEZONEOPTS=Europe/Moscow
+PROXYOPTS=none
+APKREPOSOPTS="-c -1"
+SSHDOPTS=openssh
+ROOTSSHKEY="https://github.com/mir-okon.keys"
+NTPOPTS="chrony"
+DISKOPTS="-m sys /dev/sda"
+LBUOPTS="LABEL=APKOVL"
+APKCACHEOPTS="/media/LABEL=APKOVL/cache"
