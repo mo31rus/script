@@ -36,4 +36,6 @@ rc-update add hv_fcopy_daemon
 rc-update add hv_kvp_daemon
 rc-update add hv_vss_daemon
 
-echo -e "${BRIGHTGREEN}Done!${RESET}"
+echo -e "${BRIGHTCYAN}──────────────────────────────${RESET}"
+echo -e "${BRIGHTGREEN}  Done!${RESET}"
+echo -e "${BRIGHTCYAN}──────────────────────────────${RESET}"
