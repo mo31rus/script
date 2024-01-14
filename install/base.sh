@@ -26,7 +26,7 @@ echo -e "${BRIGHTCYAN}  Alpine Linux Config Script  ${RESET}"
 echo -e "${BRIGHTGREEN}  Installing base packages ${RESET}"
 echo -e "${BRIGHTCYAN}──────────────────────────────${RESET}"
 
-apk add nano util-linux
+apk add nano util-linux htop lsblk e2fsprogs
 
 echo -e "${BRIGHTCYAN}──────────────────────────────${RESET}"
 echo -e "${BRIGHTGREEN}  Done!${RESET}"
