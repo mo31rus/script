@@ -83,3 +83,8 @@ mount /dev/md0 /mo
 echo -e "${BRIGHTCYAN}──────────────────────────────${RESET}"
 echo -e "${BRIGHTGREEN}  Done!${RESET}"
 echo -e "${BRIGHTCYAN}──────────────────────────────${RESET}"
+
+# https://wiki.alpinelinux.org/wiki/Setting_up_a_software_RAID_array
+# https://www.dmosk.ru/miniinstruktions.php?mini=mdadm#conf
+# https://dzen.ru/a/YcEFjEtGwByn0z3p?experiment=942707
+# https://losst.pro/programmnyj-raid-v-linux
