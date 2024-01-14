@@ -28,6 +28,58 @@ echo -e "${BRIGHTCYAN}───────────────────�
 
 apk add parted mdadm 
 
+modprobe raid1
+echo raid1 >> /etc/modules-load.d/raid1.conf
+
+# lsblk
+# mdadm --zero-superblock --force /dev/sd{b,c}
+
+echo -e "${BRIGHTCYAN}──────────────────────────────${RESET}"
+echo -e "${BRIGHTGREEN}  Prepare partitions${RESET}"
+echo -e "${BRIGHTCYAN}──────────────────────────────${RESET}"
+
+parted /dev/sdb mklabel msdos
+parted /dev/sdc mklabel msdos
+parted /dev/sdb mkpart primary ext4 2048 33Gb
+parted /dev/sdc mkpart primary ext4 2048 33Gb
+
+echo -e "${BRIGHTCYAN}──────────────────────────────${RESET}"
+echo -e "${BRIGHTGREEN}  Create RAID${RESET}"
+echo -e "${BRIGHTCYAN}──────────────────────────────${RESET}"
+
+mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1
+mdadm --detail --scan | tee -a /etc/mdadm.conf
+
+echo -e "${BRIGHTCYAN}──────────────────────────────${RESET}"
+echo -e "${BRIGHTGREEN}  Update rc-service${RESET}"
+echo -e "${BRIGHTCYAN}──────────────────────────────${RESET}"
+
+rc-update add mdadm-raid
+rc-update add mdadm boot
+rc-update add mdadm-raid boot
+
+echo -e "${BRIGHTCYAN}──────────────────────────────${RESET}"
+echo -e "${BRIGHTGREEN}  Mount RAID to /mo${RESET}"
+echo -e "${BRIGHTCYAN}──────────────────────────────${RESET}"
+
+mkdir /mo
+mkfs.ext4 /dev/md0
+mount /dev/md0 /mo
+
+# cat /proc/mdstat
+# mdadm --detail --scan --verbose
+# lsblk
+# blkid
+# blkid /dev/md0 
+#
+# nano /etc/fstab #add# UUID=9ad4ff80-d611-412e-b5bd-cc26ae9d21bd       /mo     ext4    defaults        0 0
+# umount /mo
+# mount -a
+# nano /etc/mdadm.conf 
+
+# reboot
+
+
 echo -e "${BRIGHTCYAN}──────────────────────────────${RESET}"
 echo -e "${BRIGHTGREEN}  Done!${RESET}"
 echo -e "${BRIGHTCYAN}──────────────────────────────${RESET}"
